@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # tabelas
-tb_estab_sp_hosp.csv
+#tb_estab_sp_hosp.csv

@@ -5,12 +5,10 @@ import pandas as pd
 from streamlit_folium import st_folium
 
 # Carregar os dados
-# Substitua pelo caminho correto do arquivo CSV
 @st.cache_data
 def carregar_dados():
-    # Exemplo: tb_estab_sp_hospital = pd.read_csv('tb_estab_sp_hospital.csv')
-    # Substitua pelo caminho correto do arquivo
-    return pd.read_csv('tb_estab_sp_hospital.csv')
+    # Substitua pelo caminho absoluto do arquivo CSV
+    return pd.read_csv(r'C:\Users\vhcna\OneDrive\Área de Trabalho\Freelas\Thiago Pavin\Operadora\prestadores_sp\ops_prestadores_streamlit\tb_estab_sp_hosp.csv', encoding='latin1', sep=';')
 
 tb_estab_sp_hosp = carregar_dados()
 
@@ -18,16 +16,18 @@ tb_estab_sp_hosp = carregar_dados()
 tb_estab_sp_hosp['NU_LATITUDE'] = tb_estab_sp_hosp['NU_LATITUDE'].astype(float)
 tb_estab_sp_hosp['NU_LONGITUDE'] = tb_estab_sp_hosp['NU_LONGITUDE'].astype(float)
 
-# Criar o filtro no Streamlit
+# Título do aplicativo
 st.title("Mapa de Estabelecimentos Hospitalares")
-zona_cidade = st.selectbox(
-    "Selecione a zona desejada:",
-    options=["Todos"] + tb_estab_sp_hosp['ZONA_SP'].unique().tolist()
+
+# Adicionar filtro por zona
+zona_selecionada = st.selectbox(
+    "Selecione uma zona da cidade:",
+    options=["Todas"] + tb_estab_sp_hosp['ZONA_SP'].unique().tolist()
 )
 
-# Filtrar os dados com base no tipo selecionado
-if zona_cidade != "Todos":
-    tb_estab_sp_hosp = tb_estab_sp_hosp[tb_estab_sp_hosp['ZONA_SP'] == zona_cidade]
+# Filtrar os dados com base na zona selecionada
+if zona_selecionada != "Todas":
+    tb_estab_sp_hosp = tb_estab_sp_hosp[tb_estab_sp_hosp['ZONA_SP'] == zona_selecionada]
 
 # Criar um mapa centralizado na média das coordenadas
 latitude_media = tb_estab_sp_hosp['NU_LATITUDE'].mean()
