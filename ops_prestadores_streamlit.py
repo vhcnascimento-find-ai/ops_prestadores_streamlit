@@ -8,7 +8,7 @@ from streamlit_folium import st_folium
 @st.cache_data
 def carregar_dados():
     # Substitua pelo caminho absoluto do arquivo CSV
-    return pd.read_csv(r'C:\Users\vhcna\OneDrive\Área de Trabalho\Freelas\Thiago Pavin\Operadora\prestadores_sp\ops_prestadores_streamlit\tb_estab_sp_hosp.csv', encoding='latin1', sep=';')
+    return pd.read_csv('tb_estab_sp_hosp.csv', encoding='latin1', sep=';')
 
 tb_estab_sp_hosp = carregar_dados()
 
