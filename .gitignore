@@ -172,6 +172,3 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-
-# tabelas
-tb_estab_sp_hosp.csv
