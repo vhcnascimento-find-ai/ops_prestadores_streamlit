@@ -22,7 +22,7 @@ st.title("Mapa de Estabelecimentos Hospitalares")
 # Adicionar filtro por tipo de estabelecimento (sem a opção "Todos")
 tipo_selecionado = st.selectbox(
     "Selecione o tipo de estabelecimento:",
-    options=tb_estab_sp_hosp['DS_TIPO_ESTABELECIMENTO'].unique().tolist(),
+    options=tb_estab_sp_filtrado['DS_TIPO_ESTABELECIMENTO'].unique().tolist(),
     index=2
 )
 
