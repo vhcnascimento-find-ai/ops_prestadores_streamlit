@@ -47,3 +47,11 @@ for _, row in tb_estab_sp_hosp.iterrows():
 
 # Exibir o mapa no Streamlit
 st_data = st_folium(mapa, width=700, height=500)
+
+# Selecionar as colunas desejadas para exibição na tabela
+colunas_tabela = ['CO_CNES', 'NO_FANTASIA', 'NO_LOGRADOURO', 'NU_ENDERECO', 'NO_COMPLEMENTO', 'CO_CEP', 'ZONA_SP', 'NU_TELEFONE', 'NO_EMAIL']
+tabela_dados = tb_estab_sp_hosp[colunas_tabela]
+
+# Exibir a tabela abaixo do mapa
+st.subheader("Detalhes dos Estabelecimentos")
+st.dataframe(tabela_dados)
