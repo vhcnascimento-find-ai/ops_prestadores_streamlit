@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 def carregar_dados():
     # Substitua pelo caminho absoluto do arquivo CSV
     #return pd.read_csv('tb_estab_sp_filtrado_2.csv', encoding='latin1', sep=';')
-    return pd.read_csv('tb_estab_sp_rede_minima.csv', encoding='latin1', sep=';')
+    return pd.read_csv('tb_estab_sp_rede_minima_2.csv', sep=';', decimal=',', encoding='latin1')
 
 tb_estab_sp_filtrado = carregar_dados()
 
