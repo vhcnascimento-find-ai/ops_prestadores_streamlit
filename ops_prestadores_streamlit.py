@@ -34,7 +34,7 @@ tb_estab_sp_filtrado = tb_estab_sp_filtrado[tb_estab_sp_filtrado['DS_TIPO_ESTABE
 zona_selecionada = st.selectbox(
     "Selecione uma zona da cidade:",
     options=["Todas"] + tb_estab_sp_filtrado['ZONA_SP'].unique().tolist(),
-    index=1
+    index=0
 )
 
 # Filtrar os dados com base na zona selecionada
